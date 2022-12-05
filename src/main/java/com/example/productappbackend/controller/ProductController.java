@@ -32,4 +32,9 @@ public class ProductController {
     {
         return "Welcome to product view page";
     }
+    @PostMapping("/deleteProduct")
+    public String ProductDelete()
+    {
+        return "Welcome to product delete page";
+    }
 }
