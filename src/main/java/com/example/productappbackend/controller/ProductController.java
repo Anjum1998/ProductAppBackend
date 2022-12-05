@@ -11,4 +11,9 @@ public class ProductController {
     {
         return "Welcome to product home page";
     }
+    @PostMapping("/productAdd")
+    public String ProductAdd()
+    {
+        return "Welcome to product add page";
+    }
 }
