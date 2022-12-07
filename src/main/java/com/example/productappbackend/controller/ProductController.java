@@ -5,7 +5,9 @@ import com.example.productappbackend.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ProductController {
@@ -19,7 +21,7 @@ public class ProductController {
     }
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/productAdd",consumes = "application/json",produces = "application/json")
-    public String ProductAdd(@RequestBody Product p)
+    public Map<String,String> ProductAdd(@RequestBody Product p)
     {
         System.out.println(p.getProductCode());
         System.out.println(p.getProductName().toString());
@@ -30,7 +32,9 @@ public class ProductController {
         System.out.println(p.getPrice());
         System.out.println(p.getSellerName().toString());
         dao.save(p);
-        return "Welcome to product add page";
+        HashMap<String,String> map=new HashMap<>();
+        map.put("status","success");
+        return map;
     }
     @PostMapping("/searchProduct")
     public String ProductSearch()
